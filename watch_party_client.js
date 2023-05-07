@@ -66,8 +66,16 @@ socket.on('updateVideoControls', control_settings => {
         var lag1 = control_settings.control_recvd_server-control_settings.control_triggered_time
         var lag2 = control_recvd_client - control_settings.control_recvd_server
         var tot_lag = lag1+lag2
-        msg = control_settings.video_user+ ": played the video from -> " + control_settings.vcontrol_time + ". \nLag between Sender and Server: "+lag1 + "ms.\nLag between Server and Receiver: "+lag2+"ms. \nTotal Lag: " + tot_lag + "ms."
+        var msg = control_settings.video_user+ ": played the video from -> " + control_settings.vcontrol_time + "s.<br>"
+        var msg2 = "Lag between Sender and Server: "+lag1 + " ms.<br>"
+        var msg3 = "Lag between Server and Receiver: "+lag2 + " ms.<br>"
+        var msg4 = "Total Lag: " + tot_lag + " ms."
+        msg = msg + msg2 + msg3+msg4
         document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg}</span></div>`
+        // document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg2}</span></div>`
+        // document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg3}</span></div>`
+        // document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg4}</span></div>`
+        
         document.getElementById("messagesDisplayArea").scrollTop = document.getElementById("messagesDisplayArea").scrollHeight
 
     }
@@ -81,8 +89,16 @@ socket.on('updateVideoControls', control_settings => {
         var lag1 = control_settings.control_recvd_server-control_settings.control_triggered_time
         var lag2 = control_recvd_client - control_settings.control_recvd_server
         var tot_lag = lag1+lag2
-        msg = control_settings.video_user+ ", paused the video at -> " + control_settings.vcontrol_time + ". \nLag between Sender and Server: "+lag1 + "ms.\nLag between Server and Receiver: "+lag2+"ms. \nTotal Lag: " + tot_lag + "ms."
+        var msg = control_settings.video_user+ ", paused the video at -> " + control_settings.vcontrol_time + "s.<br>"
+        var msg2 = "Lag between Sender and Server: "+lag1 + " ms.<br>"
+        var msg3 = "Lag between Server and Receiver: "+lag2 + " ms.<br>"
+        var msg4 = "Total Lag: " + tot_lag + " ms."
+        msg = msg + msg2 + msg3+msg4
         document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg}</span></div>`
+        // document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg2}</span></div>`
+        // document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg3}</span></div>`
+        // document.getElementById("messagesDisplayArea").innerHTML = document.getElementById("messagesDisplayArea").innerHTML + `<div class="col-12 mt-3" id="message"><span>${msg4}</span></div>`
+        
         document.getElementById("messagesDisplayArea").scrollTop = document.getElementById("messagesDisplayArea").scrollHeight
     }
 })
